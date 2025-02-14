@@ -11,46 +11,46 @@ export class Airplane {
     }
 
     createMesh() {
-        const fuselage = new THREE.CylinderGeometry(0.2, 0.2, 3, 8);
+        const fuselage = new THREE.CylinderGeometry(0.1, 0.1, 1.5, 8);
         const fuselageMaterial = new THREE.MeshLambertMaterial({ color: 0x1e90ff });
         const fuselageMesh = new THREE.Mesh(fuselage, fuselageMaterial);
         fuselageMesh.rotation.x = Math.PI / 2;
         this.mesh.add(fuselageMesh);
 
-        const wingGeometry = new THREE.BoxGeometry(3, 0.1, 0.8);
+        const wingGeometry = new THREE.BoxGeometry(1.5, 0.05, 0.4);
         const wingMaterial = new THREE.MeshLambertMaterial({ color: 0x87ceeb });
         const wingMesh = new THREE.Mesh(wingGeometry, wingMaterial);
-        wingMesh.position.y = -0.2;
+        wingMesh.position.y = -0.1;
         this.mesh.add(wingMesh);
 
-        const tailWingGeometry = new THREE.BoxGeometry(1.2, 0.05, 0.4);
+        const tailWingGeometry = new THREE.BoxGeometry(0.6, 0.025, 0.2);
         const tailWingMesh = new THREE.Mesh(tailWingGeometry, wingMaterial);
-        tailWingMesh.position.z = -1.2;
-        tailWingMesh.position.y = -0.1;
+        tailWingMesh.position.z = -0.6;
+        tailWingMesh.position.y = -0.05;
         this.mesh.add(tailWingMesh);
 
-        const verticalTailGeometry = new THREE.BoxGeometry(0.05, 0.8, 0.4);
+        const verticalTailGeometry = new THREE.BoxGeometry(0.025, 0.4, 0.2);
         const verticalTailMesh = new THREE.Mesh(verticalTailGeometry, wingMaterial);
-        verticalTailMesh.position.z = -1.2;
-        verticalTailMesh.position.y = 0.2;
+        verticalTailMesh.position.z = -0.6;
+        verticalTailMesh.position.y = 0.1;
         this.mesh.add(verticalTailMesh);
 
-        const propellerGeometry = new THREE.CylinderGeometry(0.05, 0.05, 0.1, 8);
+        const propellerGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.05, 8);
         const propellerMaterial = new THREE.MeshLambertMaterial({ color: 0x333333 });
         const propellerMesh = new THREE.Mesh(propellerGeometry, propellerMaterial);
-        propellerMesh.position.z = 1.6;
+        propellerMesh.position.z = 0.8;
         propellerMesh.rotation.x = Math.PI / 2;
         this.mesh.add(propellerMesh);
 
-        const bladeGeometry = new THREE.BoxGeometry(0.02, 0.8, 0.15);
+        const bladeGeometry = new THREE.BoxGeometry(0.01, 0.4, 0.075);
         const bladeMaterial = new THREE.MeshLambertMaterial({ color: 0x444444 });
         
         const blade1 = new THREE.Mesh(bladeGeometry, bladeMaterial);
-        blade1.position.set(0, 0.4, 1.65);
+        blade1.position.set(0, 0.2, 0.825);
         this.mesh.add(blade1);
         
         const blade2 = new THREE.Mesh(bladeGeometry, bladeMaterial);
-        blade2.position.set(0, -0.4, 1.65);
+        blade2.position.set(0, -0.2, 0.825);
         this.mesh.add(blade2);
         
         this.propellerGroup = new THREE.Group();
