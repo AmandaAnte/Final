@@ -3,8 +3,8 @@ import * as THREE from 'three';
 export class Airplane {
     constructor() {
         this.mesh = new THREE.Group();
-        this.speed = 0.2;
-        this.turnSpeed = 0.05;
+        this.speed = 0.5;
+        this.turnSpeed = 0.08;
         this.velocity = new THREE.Vector3(0, 0, 0);
         
         this.createMesh();
