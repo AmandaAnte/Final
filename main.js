@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { Airplane } from './airplane.js';
 import { Controls } from './controls.js';
 import { CameraController } from './camera.js';
+import { ObstacleManager } from './obstacles.js';
 
 // Scene
 const scene = new THREE.Scene();
@@ -40,6 +41,11 @@ const airplane = new Airplane();
 airplane.mesh.position.set(0, 0, 0);
 airplane.mesh.castShadow = true;
 scene.add(airplane.mesh);
+
+// Create obstacles
+const obstacleManager = new ObstacleManager();
+obstacleManager.createRandomObstacles(25, 100);
+obstacleManager.addToScene(scene);
 
 // Controls
 const controls = new Controls();
