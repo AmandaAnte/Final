@@ -15,28 +15,28 @@ export class Obstacle {
 
         switch (this.type) {
             case 'cube':
-                geometry = new THREE.BoxGeometry(2 * scale, 2 * scale, 2 * scale);
+                geometry = new THREE.BoxGeometry(1 * scale, 1 * scale, 1 * scale);
                 material = new THREE.MeshLambertMaterial({ color: 0x8B4513 });
                 break;
             case 'tower':
-                geometry = new THREE.CylinderGeometry(0.8 * scale, 1 * scale, 5 * scale, 8);
+                geometry = new THREE.CylinderGeometry(0.4 * scale, 0.5 * scale, 2.5 * scale, 8);
                 material = new THREE.MeshLambertMaterial({ color: 0x696969 });
                 break;
             case 'ring':
-                const outerGeometry = new THREE.TorusGeometry(3 * scale, 0.5 * scale, 8, 16);
+                const outerGeometry = new THREE.TorusGeometry(1.5 * scale, 0.25 * scale, 8, 16);
                 material = new THREE.MeshLambertMaterial({ color: 0xFF4500 });
                 geometry = outerGeometry;
                 break;
             case 'mountain':
-                geometry = new THREE.ConeGeometry(4 * scale, 8 * scale, 8);
+                geometry = new THREE.ConeGeometry(2 * scale, 4 * scale, 8);
                 material = new THREE.MeshLambertMaterial({ color: 0x8B7355 });
                 break;
             case 'wall':
-                geometry = new THREE.BoxGeometry(8 * scale, 6 * scale, 1 * scale);
+                geometry = new THREE.BoxGeometry(4 * scale, 3 * scale, 0.5 * scale);
                 material = new THREE.MeshLambertMaterial({ color: 0x654321 });
                 break;
             default:
-                geometry = new THREE.BoxGeometry(2 * scale, 2 * scale, 2 * scale);
+                geometry = new THREE.BoxGeometry(1 * scale, 1 * scale, 1 * scale);
                 material = new THREE.MeshLambertMaterial({ color: 0x8B4513 });
         }
 
@@ -59,7 +59,7 @@ export class ObstacleManager {
                 y: type === 'ring' ? Math.random() * 10 + 5 : 0,
                 z: (Math.random() - 0.5) * range
             };
-            const scale = 0.5 + Math.random() * 1;
+            const scale = 0.3 + Math.random() * 0.4;
             
             if (Math.abs(position.x) > 10 || Math.abs(position.z) > 10) {
                 const obstacle = new Obstacle(type, position, scale);
